@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Insurance Charges Predictor</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- ml.js browser bundle -->
+    <script src="https://www.lactame.com/lib/ml/6.0.0/ml.min.js"></script>
+  </head>
+
+  <body class="bg-light">
+    <div class="container py-4">
+      <div class="mb-4">
+        <h1 class="h3">Medical Insurance Charges Predictor</h1>
+        <p class="text-muted mb-0">
+          Client-side linear regression using exported scikit-learn parameters.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h2 class="h5">Input Features</h2>
+
+              <div class="mb-3">
+                <label class="form-label">Age: <span id="age_val">39</span></label>
+                <input id="age" type="range" class="form-range" min="18" max="64" step="1" value="39" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">BMI: <span id="bmi_val">30.7</span></label>
+                <input id="bmi" type="range" class="form-range" min="15" max="55" step="0.1" value="30.7" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Children: <span id="children_val">1</span></label>
+                <input id="children" type="range" class="form-range" min="0" max="5" step="1" value="1" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Sex</label>
+                <select id="sex" class="form-select">
+                  <option value="female" selected>female</option>
+                  <option value="male">male</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Smoker</label>
+                <select id="smoker" class="form-select">
+                  <option value="no" selected>no</option>
+                  <option value="yes">yes</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Region</label>
+                <select id="region" class="form-select">
+                  <option value="northeast">northeast</option>
+                  <option value="northwest">northwest</option>
+                  <option value="southeast" selected>southeast</option>
+                  <option value="southwest">southwest</option>
+                </select>
+              </div>
+
+              <button id="predictBtn" class="btn btn-primary w-100">
+                Predict Charges
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h2 class="h5">Prediction</h2>
+
+              <div id="statusBox" class="alert alert-info">Loading model...</div>
+
+              <div class="prediction-box">
+                <span class="prediction-label">Predicted Charges:</span>
+                <div id="predValue" class="display-6">$—</div>
+              </div>
+
+              <hr />
+
+              <h3 class="h6">Model Metrics</h3>
+              <div id="metricsBox" class="small text-muted">—</div>
+
+              <div class="mt-3">
+                <img id="residualImg" class="img-fluid rounded border" alt="Residual distribution" />
+              </div>
+
+              <div class="mt-3">
+                <img id="pvaImg" class="img-fluid rounded border" alt="Predicted vs actual plot" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="predict.js"></script>
+  </body>
+</html>
