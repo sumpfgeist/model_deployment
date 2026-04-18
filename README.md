@@ -139,7 +139,7 @@ To publish the web app:
 Add your public deployment link here after publishing:
 
 ```text
-https://YOUR-USERNAME.github.io/YOUR-REPOSITORY-NAME/
+https://sumpfgeist.github.io/model_deployment/
 ```
 
 ## Files to Submit
